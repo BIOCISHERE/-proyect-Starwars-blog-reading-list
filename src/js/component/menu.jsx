@@ -10,15 +10,36 @@ const Menu = () => {
         <div className="mx-4">
             <div>
                 <h1>Characters</h1>
-                <ScrollPeople />
+                {!readyPeople ? (
+                    <button className="btn btn-primary" type="button" disabled>
+                        <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>
+                ) : (
+                    <ScrollPeople />
+                )}
             </div>
             <div>
                 <h1>Planets</h1>
-                <ScrollPlanets />
+                {!readyPlanets ? (
+                    <button className="btn btn-primary" type="button" disabled>
+                        <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>
+                ) : (
+                    <ScrollPlanets />
+                )}
             </div>
             <div>
                 <h1>Vehicles</h1>
-                <ScrollVehicles />
+                {!readyVehicles ? (
+                    <button className="btn btn-primary" type="button" disabled>
+                        <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>
+                ) : (
+                    <ScrollVehicles />
+                )}
             </div>
         </div>
     )

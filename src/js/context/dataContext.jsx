@@ -6,6 +6,9 @@ export const DataProvider = ({ children }) => {
     const [starWarsPeople, setStarWarsPeople] = useState([]);
     const [starWarsPlanets, setStarWarsPlanets] = useState([]);
     const [starWarsVehicles, setStarWarsVehicles] = useState([]);
+
+    const [favorites, setFavorites] = useState([]);
+
     const [readyPeople, setReadyPeople ] = useState(false);
     const [readyPlanets, setReadyPlanets] = useState(false);
     const [readyVehicles, setReadyVehicles] = useState(false);
@@ -119,7 +122,7 @@ export const DataProvider = ({ children }) => {
 
 
     return (
-        <DataContext.Provider value={{ starWarsPeople, starWarsPlanets, starWarsVehicles, setStarWarsPeople, setStarWarsPlanets, setStarWarsVehicles, readyPeople, readyPlanets, readyVehicles, peopleFetch, planetsFetch, vehiclesFetch }}>
+        <DataContext.Provider value={{ starWarsPeople, starWarsPlanets, starWarsVehicles, setStarWarsPeople, setStarWarsPlanets, setStarWarsVehicles, readyPeople, readyPlanets, readyVehicles, peopleFetch, planetsFetch, vehiclesFetch, favorites, setFavorites }}>
             {children}
         </DataContext.Provider>
     )

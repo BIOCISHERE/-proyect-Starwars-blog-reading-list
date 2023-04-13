@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../context/dataContext.jsx";
 
 const ScrollPlanets = () => {
-    const { starWarsPlanets } = useContext(DataContext);
-
-
+    const { starWarsPlanets, favorites, setFavorites } = useContext(DataContext);
+    
     return (
         <div className="scroll">
             {starWarsPlanets.map((item, index) => (
@@ -17,7 +16,10 @@ const ScrollPlanets = () => {
                             <span className="card-text">Population: {item.population}</span><br />
                             <span className="card-text">Terrain: {item.terrain}</span><br />
                             <Link to={item.link} type="button" className="btn btn-outline-primary float-start mt-3">Learn more</Link>
-                            <button type="button" className="btn btn-outline-warning float-end mt-3">&hearts;</button>
+                            <button type="button" className="btn btn-outline-warning float-end mt-3" onClick={() => {
+                                let newObj = favorites.concat({"name": item.name, "to": item.link})
+                                setFavorites(newObj)
+                            }}>&hearts;</button>
                         </div>
                     </div>
                 </div>
